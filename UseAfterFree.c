@@ -22,8 +22,8 @@ int main(int argc, char **argv)
     if(fgets(line, sizeof(line), stdin) == NULL) break;
     
     if(strncmp(line, "auth ", 5) == 0) {
-      instance = malloc(sizeof(Auth));
-      memset(instance, 0, sizeof(instance));
+      instance = malloc(sizeof(*instance));
+      memset(instance, 0, sizeof(*instance));
       if(strlen(line + 5) < 31) {
         strcpy(instance->name, line + 5);
       }
